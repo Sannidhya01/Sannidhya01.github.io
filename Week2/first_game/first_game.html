@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Galaxy Battle</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#005b00;
+    text-align:center;
+    color:white;
+}
+
+
+.game-title{
+    background:#0b3d91;
+    padding:15px;
+    font-size:28px;
+}
+
+
+.start-screen{
+    padding:30px;
+}
+
+#start-btn{
+    display:block;
+    margin:30px auto;
+    width:400px;
+    padding:20px;
+    font-size:26px;
+    background:#eab18b;
+    color:#006400;
+    border:4px solid yellow;
+    text-decoration:none;
+}
+
+.battle-screen{
+    display:none;
+    background:#e3c6a1;
+    padding:30px;
+    color:black;
+}
+
+#battle:target{
+    display:block;
+}
+
+#battle:target ~ .start-screen{
+    display:none;
+}
+
+.pixel{
+    image-rendering:pixelated;
+    width:150px;
+}
+
+.hp-bar{
+    height:20px;
+    background:green;
+    margin:10px 0 30px 0;
+}
+
+.menu{
+    margin-top:20px;
+}
+
+.credits{
+    margin-top:40px;
+    padding-bottom:40px;
+}
+
+.credits a{
+    color:#6ec6ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="game-title">
+GALAXY BATTLE
+</div>
+
+
+<section class="start-screen">
+
+<img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=80"
+style="width:600px; image-rendering:pixelated;"
+alt="space background">
+
+<a id="start-btn" href="#battle">START!</a>
+
+</section>
+
+
+<section id="battle" class="battle-screen">
+
+<h2>A WILD UFO APPEARS</h2>
+
+<img class="pixel"
+src="https://static.vecteezy.com/system/resources/thumbnails/035/905/077/small_2x/pixel-art-illustration-ufo-pixelated-ufo-farm-ufo-space-alien-pixelated-for-the-pixel-art-game-and-icon-for-website-and-video-game-old-school-retro-vector.jpg"
+alt="ufo">
+
+<p>10/10 HP</p>
+
+<div class="hp-bar"></div>
+
+<img class="pixel"
+src="https://preview.redd.it/new-spaceship-that-i-made-i-am-still-quite-new-to-pixel-art-v0-yct20hubfk061.png?auto=webp&s=5f1526ea8ebebdf1d0a001dbbb1ed0e099a1226b"
+alt="spaceship">
+
+<div class="menu">
+<ol>
+<li><button>LASER</button></li>
+<li>
+ITEM
+<select>
+<option>ENERGY CELL</option>
+<option>SHIELD BOOST</option>
+</select>
+</li>
+<li><button>SWITCH</button></li>
+<li><button>RETREAT</button></li>
+</ol>
+</div>
+
+</section>
+
+
+<div class="credits">
+
+<h2>Credits</h2>
+
+<hr style="width:500px">
+
+<ul style="list-style:none">
+
+<li>Spaceship Sprite:
+<a href="https://preview.redd.it/new-spaceship-that-i-made-i-am-still-quite-new-to-pixel-art-v0-yct20hubfk061.png?auto=webp&s=5f1526ea8ebebdf1d0a001dbbb1ed0e099a1226b">
+Pixel Spaceship
+</a>
+</li>
+
+<li>UFO Sprite:
+<a href="https://static.vecteezy.com/system/resources/thumbnails/035/905/077/small_2x/pixel-art-illustration-ufo-pixelated-ufo-farm-ufo-space-alien-pixelated-for-the-pixel-art-game-and-icon-for-website-and-video-game-old-school-retro-vector.jpg">
+Pixel UFO
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</body>
+</html>
