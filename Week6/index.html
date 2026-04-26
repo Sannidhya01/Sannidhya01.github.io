@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Space Explorer</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa") no-repeat center/cover;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.5);
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 40px;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #4e54c8;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #6c70ff;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      margin: 20px auto;
+      width: 250px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    input {
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    #hidden-box {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <h1 id="greeting">Welcome Explorer</h1>
+
+  <button id="launch-btn">Launch 🚀</button>
+  <button id="toggle-btn">Show Mission Info</button>
+
+  <div class="card" id="hidden-box">
+    🌌 You are now exploring deep space!
+  </div>
+
+  <div class="card">
+    <p>Enter your name:</p>
+    <input type="text" id="name-input">
+    <p id="name-msg"></p>
+  </div>
+
+  <div class="card" id="hover-card">
+    Hover over me 🌍
+  </div>
+
+</div>
+
+<script>
+  const planets = [
+    "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
+    "https://images.unsplash.com/photo-1462331940025-496dfbfc7564",
+    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2344&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1707058665477-560297ffe913?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBob2xlfGVufDB8fDB8fHwy"
+  ];
+
+  // Interaction 1: Change background to random planet on button click
+  function handleLaunchClick() {
+    alert("Liftoff! 🚀");
+
+    const randomPlanet = planets[Math.floor(Math.random() * planets.length)];
+    document.body.style.background = `url(${randomPlanet}) no-repeat center/cover`;
+  }
+
+  document.getElementById("launch-btn")
+    .addEventListener("click", handleLaunchClick);
+
+
+  // Interaction 2: Update welcome message as user types their name
+  function handleNameInput(event) {
+    document.getElementById("name-msg").innerText =
+      "Welcome to space, " + event.target.value + " 🚀";
+  }
+
+  document.getElementById("name-input")
+    .addEventListener("input", handleNameInput);
+
+
+  // Interaction 3: Scale up card on hover
+  function handleMouseOver() {
+    const card = document.getElementById("hover-card");
+    card.style.transform = "scale(1.1)";
+  }
+
+  function handleMouseOut() {
+    const card = document.getElementById("hover-card");
+    card.style.transform = "scale(1)";
+  }
+
+  document.getElementById("hover-card")
+    .addEventListener("mouseover", handleMouseOver);
+
+  document.getElementById("hover-card")
+    .addEventListener("mouseout", handleMouseOut);
+
+
+  // Interaction 4: Toggle visibility of mission info
+  function handleToggleClick() {
+    const box = document.getElementById("hidden-box");
+
+    if (box.style.display === "block") {
+      box.style.display = "none";
+    } else {
+      box.style.display = "block";
+    }
+  }
+
+  document.getElementById("toggle-btn")
+    .addEventListener("click", handleToggleClick);
+
+
+  // Interaction 5: Set greeting based on time of day
+  function setGreeting() {
+    const hour = new Date().getHours();
+    let msg = "";
+
+    if (hour < 12) msg = "Good Morning ☀️";
+    else if (hour < 18) msg = "Good Afternoon 🌎";
+    else msg = "Good Evening 🌙";
+
+    document.getElementById("greeting").innerText = msg + ", Explorer";
+  }
+
+  window.addEventListener("load", setGreeting);
+
+</script>
+
+</body>
+</html>
